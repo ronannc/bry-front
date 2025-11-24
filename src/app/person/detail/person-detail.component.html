@@ -1,0 +1,22 @@
+<div *ngIf="loading" style="text-align:center; margin:32px 0;">
+    <mat-spinner></mat-spinner>
+</div>
+
+<app-api-error [errorMessage]="error"></app-api-error>
+
+<div *ngIf="person && !loading">
+	<h2>Detalhes da Pessoa</h2>
+    <mat-card style="color: white;">
+        <mat-card-content>
+            <h2>{{ person.name }}</h2>
+            <p><strong>Login:</strong> {{ person.login }}</p>
+            <p><strong>Email:</strong> {{ person.email }}</p>
+            <p><strong>CPF:</strong> {{ person.cpf }}</p>
+            <p><strong>Endereço:</strong> {{ person.address }}</p>
+            <p><strong>Tipo:</strong> {{ person.type }}</p>
+            <p *ngIf="person.document_path"><strong>Documento:</strong> <a [href]="person.document_path"
+                    target="_blank">Visualizar</a></p>
+        </mat-card-content>
+    </mat-card>
+    <app-company-list [personId]="person.id"></app-company-list>
+</div>

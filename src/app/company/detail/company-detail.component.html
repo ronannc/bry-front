@@ -1,0 +1,19 @@
+<div *ngIf="loading" style="text-align:center; margin:32px 0;">
+	<mat-spinner></mat-spinner>
+</div>
+
+<app-api-error [errorMessage]="error"></app-api-error>
+
+<div *ngIf="company && !loading">
+	<h2>Detalhes da Empresa</h2>
+	<mat-card style="color: white;">
+		<mat-card-content>
+			<p><strong>Nome:</strong> {{ company.name }}</p>
+			<p><strong>CNPJ:</strong> {{ company.cnpj }}</p>
+			<p><strong>Endereço:</strong> {{ company.address }}</p>
+		</mat-card-content>
+	</mat-card>
+
+	<h3 style="margin-top:32px;">Pessoas da Empresa</h3>
+	<app-person-list [companyId]="company.id"></app-person-list>
+</div>
