@@ -1,27 +1,64 @@
-# FrontBry
+# BRY Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Este projeto é um frontend Angular 17 para gestão de empresas e pessoas, integrado ao backend Laravel. Utiliza Angular Material para UI moderna, navegação, tabelas, formulários, paginação e filtros dinâmicos.
 
-## Development server
+## Funcionalidades
+- CRUD completo para empresas e pessoas
+- Visualização cruzada: empresas vinculadas a pessoas e vice-versa
+- Paginação e filtros dinâmicos integrados ao backend
+- Tema escuro, footer personalizado, feedback visual
+- Componente reutilizável para exibição de erros da API
+- Estrutura organizada em `src/app/screens` por domínio
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Estrutura do Projeto
+```
+front-bry/
+├── src/
+│   ├── app/
+│   │   ├── screens/
+│   │   │   ├── company/
+│   │   │   └── person/
+│   │   ├── models/
+│   │   ├── services/
+│   │   └── shared/
+│   ├── assets/
+│   └── environments/
+├── angular.json
+├── package.json
+├── tsconfig.json
+└── README.md
+```
 
-## Code scaffolding
+## Instalação
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/ronannc/bry-front.git
+   cd bry-front/front-bry
+   ```
+2. Instale as dependências:
+   ```sh
+   npm install
+   ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Executando em modo desenvolvimento
+```sh
+npm start
+```
+Acesse [http://localhost:4200](http://localhost:4200) no navegador.
 
-## Build
+## Build para produção
+```sh
+ng build
+```
+Os artefatos serão gerados em `dist/front-bry`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Configuração de ambiente
+Edite os arquivos em `src/environments` para configurar URLs da API e variáveis globais.
 
-## Running unit tests
+## Observações
+- O backend deve estar rodando e acessível conforme configurado em `environment.ts`.
+- Para dúvidas sobre comandos Angular CLI, consulte [Angular CLI Docs](https://angular.io/cli).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Desenvolvido por Ronan.
