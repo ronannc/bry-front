@@ -43,8 +43,7 @@
 		<p>Nenhuma empresa cadastrada.</p>
 	</ng-template>
 
-	<mat-paginator *ngIf="paginator" [length]="paginator.per_page * (paginator.to / paginator.per_page)"
-		[pageSize]="paginator.per_page" [pageIndex]="paginator.current_page - 1"
-		[pageSizeOptions]="[paginator.per_page]" (page)="onPageChange($event)">
+	<mat-paginator *ngIf="paginator" [length]="paginator.total" [pageSize]="paginator.per_page"
+		[pageIndex]="paginator.current_page - 1" [pageSizeOptions]="[paginator.per_page]" (page)="onPageChange($event)">
 	</mat-paginator>
 </div>

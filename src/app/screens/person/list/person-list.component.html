@@ -1,16 +1,20 @@
 <div>
 	<app-api-error [errorMessage]="apiError"></app-api-error>
 	<h2>Pessoas</h2>
-	<mat-form-field appearance="fill" style="min-width: 200px; margin-bottom: 16px;">
-		<mat-label>Tipo de Pessoa</mat-label>
-		<mat-select [(ngModel)]="selectedType" (selectionChange)="onTypeFilterChange()">
-			<mat-option value="">Todos</mat-option>
-			<mat-option *ngFor="let type of personTypes" [value]="type">{{ type }}</mat-option>
-		</mat-select>
-	</mat-form-field>
-	<button mat-raised-button color="primary" (click)="createPerson()" style="margin-bottom: 16px;">
-		<mat-icon>add</mat-icon> Adicionar Pessoa
-	</button>
+	<div style="margin-bottom: 16px;">
+		<button mat-raised-button color="primary" (click)="createPerson()">
+			<mat-icon>add</mat-icon> Adicionar Pessoa
+		</button>
+	</div>
+	<div style="margin-bottom: 0;">
+		<mat-form-field appearance="fill" style="min-width: 200px; margin-bottom: 0;">
+			<mat-label>Tipo de Pessoa</mat-label>
+			<mat-select [(ngModel)]="selectedType" (selectionChange)="onTypeFilterChange()">
+				<mat-option value="">Todos</mat-option>
+				<mat-option *ngFor="let type of personTypes" [value]="type">{{ type }}</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
 	<div *ngIf="loading" style="text-align:center; margin:32px 0;">
 		<mat-spinner></mat-spinner>
 	</div>
