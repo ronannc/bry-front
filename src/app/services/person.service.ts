@@ -3,15 +3,19 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Person } from '../models/person.model';
 import { Paginator } from '../models/paginator.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class PersonService {
-  public apiUrl = 'http://localhost:8000/api/persons'; // ajuste conforme seu backend
+  public apiUrl = environment.apiUrl + '/persons';
 
   constructor(private http: HttpClient) {}
 
-  getAll(url?: string): Observable<Paginator<Person>> {
-    const endpoint = url || this.apiUrl;
+  getAll(filters?: string[]): Observable<Paginator<Person>> {
+    let endpoint = this.apiUrl;
+    if (filters && filters.length > 0) {
+      endpoint += (endpoint.includes('?') ? '&' : '?') + filters.join('&');    
+    }
     return this.http.get<Paginator<Person>>(endpoint);
   }
 

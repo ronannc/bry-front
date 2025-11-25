@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
 
-import { CompanyListComponent } from './company/list/company-list.component';
-import { CompanyFormComponent } from './company/form/company-form.component';
-import { CompanyDetailComponent } from './company/detail/company-detail.component';
-import { PersonListComponent } from './person/list/person-list.component';
-import { PersonFormComponent } from './person/form/person-form.component';
-import { PersonDetailComponent } from './person/detail/person-detail.component';
+import { CompanyListComponent } from './screens/company/list/company-list.component';
+import { CompanyFormComponent } from './screens/company/form/company-form.component';
+import { CompanyDetailComponent } from './screens/company/detail/company-detail.component';
+import { PersonListComponent } from './screens/person/list/person-list.component';
+import { PersonFormComponent } from './screens/person/form/person-form.component';
+import { PersonDetailComponent } from './screens/person/detail/person-detail.component';
 
 export const routes: Routes = [
 	{ path: 'companies', component: CompanyListComponent },

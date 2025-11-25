@@ -14,9 +14,10 @@
             <p><strong>CPF:</strong> {{ person.cpf }}</p>
             <p><strong>Endereço:</strong> {{ person.address }}</p>
             <p><strong>Tipo:</strong> {{ person.type }}</p>
-            <p *ngIf="person.document_path"><strong>Documento:</strong> <a [href]="person.document_path"
+            <p *ngIf="person.document_url"><strong>Documento:</strong> <a [href]="person.document_url"
                     target="_blank">Visualizar</a></p>
         </mat-card-content>
     </mat-card>
+    <h3 style="margin-top:32px;">Empresas da pessoa</h3>
     <app-company-list [personId]="person.id"></app-company-list>
 </div>

@@ -1,5 +1,6 @@
 <div>
 	<app-api-error [errorMessage]="apiError"></app-api-error>
+	<h2>Pessoas</h2>
 	<mat-form-field appearance="fill" style="min-width: 200px; margin-bottom: 16px;">
 		<mat-label>Tipo de Pessoa</mat-label>
 		<mat-select [(ngModel)]="selectedType" (selectionChange)="onTypeFilterChange()">
@@ -7,7 +8,6 @@
 			<mat-option *ngFor="let type of personTypes" [value]="type">{{ type }}</mat-option>
 		</mat-select>
 	</mat-form-field>
-	<h2>Pessoas</h2>
 	<button mat-raised-button color="primary" (click)="createPerson()" style="margin-bottom: 16px;">
 		<mat-icon>add</mat-icon> Adicionar Pessoa
 	</button>

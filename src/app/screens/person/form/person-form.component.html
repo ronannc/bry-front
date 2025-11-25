@@ -1,0 +1,71 @@
+<mat-card style="color: white; padding: 8px;">
+	<mat-card-title style="margin-bottom: 8px;">{{ isEdit ? 'Editar Pessoa' : 'Nova Pessoa' }}</mat-card-title>
+	<mat-card-content>
+		<app-api-error [errorMessage]="apiError"></app-api-error>
+		<form [formGroup]="form" (ngSubmit)="submit()" class="person-form">
+			<div class="mat-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+				<mat-form-field appearance="outline" class="full-width">
+					<mat-label>Login</mat-label>
+					<input matInput formControlName="login" />
+					<mat-error *ngIf="form.get('login')?.invalid && form.get('login')?.touched">Login
+						obrigatório</mat-error>
+				</mat-form-field>
+				<mat-form-field appearance="outline" class="full-width">
+					<mat-label>Senha</mat-label>
+					<input matInput formControlName="password" type="password" />
+					<mat-error *ngIf="form.get('password')?.invalid && form.get('password')?.touched">Senha
+						obrigatória (mínimo 6 caracteres)</mat-error>
+				</mat-form-field>
+				<mat-form-field appearance="outline" class="full-width">
+					<mat-label>Nome</mat-label>
+					<input matInput formControlName="name" />
+					<mat-error *ngIf="form.get('name')?.invalid && form.get('name')?.touched">Nome
+						obrigatório</mat-error>
+				</mat-form-field>
+				<mat-form-field appearance="outline" class="full-width">
+					<mat-label>CPF</mat-label>
+					<input matInput formControlName="cpf" maxlength="14" />
+					<mat-error *ngIf="form.get('cpf')?.invalid && form.get('cpf')?.touched">CPF
+						obrigatório</mat-error>
+				</mat-form-field>
+				<mat-form-field appearance="outline" class="full-width">
+					<mat-label>Email</mat-label>
+					<input matInput formControlName="email" />
+					<mat-error *ngIf="form.get('email')?.invalid && form.get('email')?.touched">Email
+						obrigatório e válido</mat-error>
+				</mat-form-field>
+				<mat-form-field appearance="outline" class="full-width">
+					<mat-label>Endereço</mat-label>
+					<input matInput formControlName="address" />
+				</mat-form-field>
+				<mat-form-field appearance="outline" class="full-width">
+					<mat-label>Tipo</mat-label>
+					<mat-select formControlName="type">
+						<mat-option *ngFor="let type of personTypes" [value]="type">{{ type }}</mat-option>
+					</mat-select>
+					<mat-error *ngIf="form.get('type')?.invalid && form.get('type')?.touched">Tipo
+						obrigatório</mat-error>
+				</mat-form-field>
+				<mat-form-field appearance="outline" class="full-width">
+					<mat-label>Empresas</mat-label>
+					<mat-select formControlName="companies_id" multiple>
+						<mat-option *ngFor="let company of companies" [value]="company.id">{{ company.name }}</mat-option>
+					</mat-select>
+					<mat-error *ngIf="form.get('companies_id')?.invalid && form.get('companies_id')?.touched">Selecione ao menos uma empresa</mat-error>
+				</mat-form-field>
+				<div>
+					<label style="display:block; margin-bottom:8px;">Documento (PDF/JPG até 5MB)</label>
+					<input type="file" (change)="onFileChange($event)" accept=".pdf,.jpg,.jpeg"
+						style="margin-bottom:16px;" />
+				</div>
+			</div>
+			<div class="actions" style="margin-top: 24px;">
+				<button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || loading">
+					{{ isEdit ? 'Salvar' : 'Criar' }}
+					<mat-progress-spinner *ngIf="loading" diameter="20" mode="indeterminate"></mat-progress-spinner>
+				</button>
+				<button mat-button type="button" (click)="cancel()">Cancelar</button>
+			</div>
+		</form>
+	</mat-card-content>
+</mat-card>

@@ -7,4 +7,6 @@ export interface Person {
   address: string;
   type: string;
   document_path: string;
+  document_url: string;
+  companies_id?: number[];
 }
