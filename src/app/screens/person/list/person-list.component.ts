@@ -13,7 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { ApiErrorComponent } from '../../../shared/api-error.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatProgressSpinner, MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 @Component({
   selector: 'app-person-list',

@@ -49,9 +49,11 @@
 				<mat-form-field appearance="outline" class="full-width">
 					<mat-label>Empresas</mat-label>
 					<mat-select formControlName="companies_id" multiple>
-						<mat-option *ngFor="let company of companies" [value]="company.id">{{ company.name }}</mat-option>
+						<mat-option *ngFor="let company of companies" [value]="company.id">{{ company.name
+							}}</mat-option>
 					</mat-select>
-					<mat-error *ngIf="form.get('companies_id')?.invalid && form.get('companies_id')?.touched">Selecione ao menos uma empresa</mat-error>
+					<mat-error *ngIf="form.get('companies_id')?.invalid && form.get('companies_id')?.touched">Selecione
+						ao menos uma empresa</mat-error>
 				</mat-form-field>
 				<div>
 					<label style="display:block; margin-bottom:8px;">Documento (PDF/JPG até 5MB)</label>

@@ -6,6 +6,7 @@ import { CompanyDetailComponent } from './screens/company/detail/company-detail.
 import { PersonListComponent } from './screens/person/list/person-list.component';
 import { PersonFormComponent } from './screens/person/form/person-form.component';
 import { PersonDetailComponent } from './screens/person/detail/person-detail.component';
+import { DuplicateIdentityListComponent } from './screens/duplicate-identity/duplicate-identity-list.component';
 
 export const routes: Routes = [
 	{ path: 'companies', component: CompanyListComponent },
@@ -17,6 +18,8 @@ export const routes: Routes = [
 	{ path: 'persons/create', component: PersonFormComponent },
 	{ path: 'persons/:id', component: PersonDetailComponent },
 	{ path: 'persons/:id/edit', component: PersonFormComponent },
+
+	{ path: 'duplicated-identities', component: DuplicateIdentityListComponent },
 
 	{ path: '', redirectTo: 'companies', pathMatch: 'full' },
 ];
